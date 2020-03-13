@@ -1,0 +1,5 @@
+- Serviço que vai consumir a API do github (busca pela flag #Flask)
+- Analise, filtragem, tratamento dos dados
+- API Servir os dados
+- Ferramenta CLI (CLUI)
+- Web app (qq.js) - vue.js
