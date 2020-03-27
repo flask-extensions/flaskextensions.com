@@ -1,0 +1,5 @@
+[default]
+DATABASE_URL = "sqlite:///:memory:"
+SEARCH_QUERY= 'topic:"flask-extension flask-extensions"'
+DELAY = 300
+PRIORITY = 100
