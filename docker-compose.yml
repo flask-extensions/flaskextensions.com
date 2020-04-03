@@ -1,3 +1,4 @@
+---
 version: "3"
 
 volumes:
@@ -15,8 +16,6 @@ services:
     image: postgres:12.1
     restart: always
     environment:
-      POSTGRES_USER: "fexservice"
-      POSTGRES_PASSWORD: "password"
-      POSTGRES_DB: "fexservice"
+      DYNACONF_DATABASE_URL: "@jinja postgresql+psycopg2://{this[DB_USER]}:{this[DB_PASS]}@db/{this[DB_NAME]}"
     volumes:
       - data:/var/lib/postgresql/data
