@@ -3,5 +3,5 @@ DB_USER = "fexservice"
 DB_NAME = "fexservice"
 DATABASE_URL = "sqlite:///:memory:"
 SEARCH_QUERY= 'topic:"flask-extension flask-extensions"'
-DELAY = 300
+DELAY = 10
 PRIORITY = 100

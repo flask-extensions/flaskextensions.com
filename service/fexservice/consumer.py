@@ -23,5 +23,8 @@ def fetch_github():
             full_name=item.full_name,
             html_url=item.html_url,
             description=item.description,
+            # TODO: falta colocar: data de ultimo commit/release
+            # TODO: quant stars
+            # TODO: quant de contribuidores
         )
         repo.upsert(data, ["id"])

@@ -14,7 +14,8 @@ cron = sched.scheduler(timefunc=time.time)
 
 
 def enqueue(action: Callable):
-    new_delay = datetime.now().replace(second=0, microsecond=0)
+    new_delay = datetime.now()
+    # new_delay = datetime.now().replace(second=0, microsecond=0)
     new_delay += timedelta(seconds=settings.DELAY)
     print(new_delay)
     cron.enterabs(
