@@ -13,3 +13,4 @@ This is a collaborative project, mostly created during live streming on https://
 
 
 - Marcos Oliveira <marcosf63@gmail.com>
+- Jairo Rocha <devjairomr@gmail.com> - @jairomr
