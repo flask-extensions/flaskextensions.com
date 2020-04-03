@@ -1,5 +1,5 @@
 [default]
-DB_USER = "fexservice"
+DB_USER = "dfsdfsdfsdffexservice"
 DB_NAME = "fexservice"
 DATABASE_URL = "sqlite:///:memory:"
 SEARCH_QUERY= 'topic:"flask-extension flask-extensions"'

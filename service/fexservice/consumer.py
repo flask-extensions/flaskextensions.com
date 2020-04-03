@@ -4,8 +4,13 @@ from github import Github
 
 github = Github(settings.GITHUB_TOKEN)
 
+# TODO: ConnectionError
 db = dataset.connect(settings.DATABASE_URL, engine_kwargs={"echo": True})
 repo = db["repos"]
+
+
+class FetchError(Exception):
+    ...
 
 
 def fetch_github():

@@ -11,11 +11,15 @@ services:
     restart: always
     depends_on:
       - "db"
+    environment:
+      - DYNACONF_DATABASE_URL="@format postgresql+psycopg2://{this.DB_USER}:{this.DB_PASS}@db/{this.DB_NAME}"
 
   db:
     image: postgres:12.1
     restart: always
     environment:
-      DYNACONF_DATABASE_URL: "@jinja postgresql+psycopg2://{this[DB_USER]}:{this[DB_PASS]}@db/{this[DB_NAME]}"
+      - POSTGRES_USER=fexservice
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=fexservice
     volumes:
       - data:/var/lib/postgresql/data
