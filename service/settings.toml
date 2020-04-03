@@ -1,5 +1,6 @@
 [default]
-DATABASE_URL = "sqlite:///:memory:"
+#DATABASE_URL = "sqlite:///:memory:"
+DATABASE_URL = "postgresql://fexservice:password@db/fexservice"
 SEARCH_QUERY= 'topic:"flask-extension flask-extensions"'
 DELAY = 300
 PRIORITY = 100

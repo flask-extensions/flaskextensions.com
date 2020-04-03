@@ -1,0 +1,22 @@
+version: "3"
+
+volumes:
+  data:
+
+services:
+
+  fexservice:
+    build: .
+    restart: always
+    depends_on:
+      - "db"
+
+  db:
+    image: postgres:12.1
+    restart: always
+    environment:
+      POSTGRES_USER: "fexservice"
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: "fexservice"
+    volumes:
+      - data:/var/lib/postgresql/data
