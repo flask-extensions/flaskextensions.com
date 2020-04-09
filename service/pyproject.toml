@@ -22,6 +22,7 @@ ipython = "^7.13.0"
 ipdb = "^0.13.2"
 isort = "^4.3.21"
 black = "^19.10b0"
+dynaconf = "^2.2.3"
 
 [build-system]
 requires = ["poetry>=0.12"]
