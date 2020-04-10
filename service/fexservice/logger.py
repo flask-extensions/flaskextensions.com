@@ -4,17 +4,18 @@ Baseado na Live de Python
 https://github.com/dunossauro/live-de-python/blob/master/codigo/Live48/complex/full_log.py
 """
 import logging
+
 from dynaconf import settings
 
-def create_logger(name:str):
+
+def create_logger(name: str):
     logger = logging.getLogger(name)
 
     logger.setLevel(logging.DEBUG)
     formatter = logging.Formatter(
-        '%(asctime)s | %(levelname)-8s | %(filename)s - %(name)s: %(message)s',
-        '%Y-%m-%d %H:%M:%S'
+        "%(asctime)s | %(levelname)-8s | %(filename)s - %(name)s: %(message)s",
+        "%Y-%m-%d %H:%M:%S",
     )
-
 
     # Console Handler
     ch = logging.StreamHandler()
@@ -24,14 +25,14 @@ def create_logger(name:str):
     # File Handler
     try:
         fh = logging.FileHandler(settings.LOGGER_FILE)
-    except AttributeError as e:
-        fh = logging.FileHandler('log.log')
+    except AttributeError:
+        fh = logging.FileHandler("log.log")
     try:
         if settings.DEBUG == True:
             fh.setLevel(logging.DEBUG)
         else:
             fh.setLevel(logging.WARNING)
-    except AttributeError as e:
+    except AttributeError:
         fh.setLevel(logging.WARNING)
     fh.setFormatter(formatter)
 
@@ -40,10 +41,11 @@ def create_logger(name:str):
     logger.addHandler(fh)
     return logger
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     logger = create_logger(__name__)
-    logger.debug('debug message')
-    logger.info('info message')
-    logger.warning('warn message')
-    logger.error('error message')
-    logger.critical('critical message')
+    logger.debug("debug message")
+    logger.info("info message")
+    logger.warning("warn message")
+    logger.error("error message")
+    logger.critical("critical message")
