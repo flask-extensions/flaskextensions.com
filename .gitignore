@@ -130,3 +130,8 @@ dmypy.json
 
 # Ignore dynaconf secret files
 .secrets.*
+
+# Ignore Temp Folders
+temp/
+.vscode
+.gitignore
