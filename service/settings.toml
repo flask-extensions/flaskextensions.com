@@ -5,3 +5,5 @@ DATABASE_URL = "sqlite:///:memory:"
 SEARCH_QUERY= 'topic:"flask-extension flask-extensions"'
 DELAY = 10
 PRIORITY = 100
+LOGGER_FILE = 'log.log'
+GITHUB_TOKEN = '5edc6e893d2c881d5b033f0fd9bfb1a54694727b'
