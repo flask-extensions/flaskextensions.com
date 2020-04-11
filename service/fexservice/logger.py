@@ -8,11 +8,11 @@ formatter = "[ {level.icon}{level:^10}] {time:YYYY-MM-DD hh:mm:ss} {file} - {nam
 
 
 try:
-    level = str(settings.LOGGER_LEVEL)
+    level = settings.LOGGER_LEVEL
 except AttributeError:
     level = "INFO"
 try:
-    file_name = str(settings.LOGGER_FILE)
+    file_name = settings.LOGGER_FILE
 except AttributeError:
     file_name = "logger.log"
 
