@@ -57,10 +57,8 @@ jobs:
 
       - name: Run fexservice
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DYNACONF_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd service
           sed -i 's/blocking=True/blocking=False/g' fexservice/cli.py
-          echo "\nGITHUB_TOKEN = \"$GITHUB_TOKEN\"" >> settings.toml
-          cat settings.toml
           poetry run fexservice
