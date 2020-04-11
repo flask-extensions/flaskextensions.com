@@ -1,0 +1,65 @@
+name: Codeshow
+
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - '*'
+    tags:
+      - '*'
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: '15 0 * * *'
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.8"]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install Poetry
+        uses: dschep/install-poetry-action@v1.2
+
+      - name: Cache Poetry virtualenv
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: ~/.virtualenvs
+          key: poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            poetry-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Set Poetry config
+        run: |
+          poetry config virtualenvs.in-project false
+          poetry config virtualenvs.path ~/.virtualenvs
+
+      - name: Install Dependencies
+        run: |
+          cd service
+          poetry install
+        if: steps.cache.outputs.cache-hit != 'true'
+
+      - name: Run fexservice
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd service
+          sed -i 's/blocking=True/blocking=False/g' fexservice/cli.py
+          echo "GITHUB_TOKEN = \"$GITHUB_TOKEN\"" >> settings.toml
+          poetry run fexservice

@@ -1,0 +1,27 @@
+---
+version: "3"
+
+volumes:
+  data:
+
+services:
+
+  fexservice:
+    build: .
+    restart: always
+    depends_on:
+      - "db"
+    environment:
+      - DYNACONF_DATABASE_URL="@format postgresql+psycopg2://fexservice:password@db/fexservice"
+
+  db:
+    image: postgres:12.1
+    restart: always
+    environment:
+      - POSTGRES_USER=fexservice
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=fexservice
+    volumes:
+      - data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
