@@ -62,4 +62,5 @@ jobs:
           cd service
           sed -i 's/blocking=True/blocking=False/g' fexservice/cli.py
           echo "\nGITHUB_TOKEN = \"$GITHUB_TOKEN\"" >> settings.toml
+          cat settings.toml
           poetry run fexservice
