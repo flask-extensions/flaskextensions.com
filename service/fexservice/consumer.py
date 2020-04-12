@@ -32,7 +32,9 @@ def fetch_github():
         repositories = github.search_repositories(
             query=settings.SEARCH_QUERY, sort="stars"
         )
-
+        if 0 == repositories.totalCount:
+            logger.critical("Bad SEARCH_QUERY")
+            exit(1)
         for item in repositories:
             data = dict(
                 id=item.id,
