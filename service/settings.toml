@@ -2,6 +2,7 @@
 DB_USER = "fexservice"
 DB_NAME = "fexservice"
 DATABASE_URL = "sqlite:///:memory:"
-SEARCH_QUERY= 'topic:"flask-extension flask-extensions"'
+SEARCH_QUERY= "topic:'flask-extension flask-extensions'"
 DELAY = 10
 PRIORITY = 100
+LOGGER_FILE = 'log.log'
