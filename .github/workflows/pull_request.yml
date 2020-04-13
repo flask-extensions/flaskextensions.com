@@ -1,17 +1,6 @@
-name: Codeshow
+name: Pull Request
 
-on:
-  pull_request:
-    branches:
-      - '*'
-  push:
-    branches:
-      - '*'
-    tags:
-      - '*'
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron: '15 0 * * *'
+on: pull_request
 
 jobs:
 
@@ -57,9 +46,8 @@ jobs:
 
       - name: Run fexservice
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DYNACONF_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd service
           sed -i 's/blocking=True/blocking=False/g' fexservice/cli.py
-          echo "GITHUB_TOKEN = \"$GITHUB_TOKEN\"" >> settings.toml
           poetry run fexservice
