@@ -12,9 +12,8 @@ from dynaconf import settings
 from typer import run
 
 from fexservice.consumer import fetch_github
-from fexservice.logger import create_logger
+from fexservice.logger import logger
 
-logger = create_logger(__name__)
 cron = sched.scheduler(timefunc=time.time)
 
 logger.info(

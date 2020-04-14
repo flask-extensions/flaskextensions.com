@@ -1,49 +1,28 @@
 """
 Autor - Jairo Matos da Rocha <devjairomr@gmail.com>
-Baseado na Live de Python
-https://github.com/dunossauro/live-de-python/blob/master/codigo/Live48/complex/full_log.py
 """
-import logging
-
 from dynaconf import settings
+from loguru import logger
+
+formatter = "[ {level.icon}{level:^10}] {time:YYYY-MM-DD hh:mm:ss} {file} - {name}: {message}"
 
 
-def create_logger(name: str):
-    logger = logging.getLogger(name)
+try:
+    level = settings.LOGGER_LEVEL
+except AttributeError:
+    level = "INFO"
+try:
+    file_name = settings.LOGGER_FILE
+except AttributeError:
+    file_name = "logger.log"
 
-    logger.setLevel(logging.DEBUG)
-    formatter = logging.Formatter(
-        "%(asctime)s | %(levelname)-8s | %(filename)s - %(name)s: %(message)s",
-        "%Y-%m-%d %H:%M:%S",
-    )
-
-    # Console Handler
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.DEBUG)
-    ch.setFormatter(formatter)
-
-    # File Handler
-    try:
-        fh = logging.FileHandler(settings.LOGGER_FILE)
-    except AttributeError:
-        fh = logging.FileHandler("log.log")
-    try:
-        if settings.DEBUG == True:
-            fh.setLevel(logging.DEBUG)
-        else:
-            fh.setLevel(logging.WARNING)
-    except AttributeError:
-        fh.setLevel(logging.WARNING)
-    fh.setFormatter(formatter)
-
-    # Adicionando o handlers
-    logger.addHandler(ch)
-    logger.addHandler(fh)
-    return logger
+# logger.add(sys.stderr, format=formatter, level=level,colorize=True)
+logger.add(
+    file_name, format=formatter, level=level, rotation="500 MB", colorize=True
+)
 
 
 if __name__ == "__main__":
-    logger = create_logger(__name__)
     logger.debug("debug message")
     logger.info("info message")
     logger.warning("warn message")

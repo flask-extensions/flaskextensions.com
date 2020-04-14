@@ -18,6 +18,7 @@ settings.validators.register(
     Validator('PRIORITY', gte=100),
 
     # validate a value is eq in specific env
+
     # Validalção do modelo de DB utilizado durante o Desenvolvimento e a produção
     Validator('DATABASE_URL', eq='sqlite:///:memory:'), #TODO: Definir o Banco de produção e definir env=''
 )

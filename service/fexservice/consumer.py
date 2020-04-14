@@ -1,20 +1,12 @@
 import dataset
 from dynaconf import settings, Validator
 from github import Github
-from github.GithubException import BadAttributeException  # TODO
-from github.GithubException import BadUserAgentException  # TODO
-from github.GithubException import IncompletableObject  # TODO
-from github.GithubException import (BadCredentialsException,
-                                    RateLimitExceededException,
-                                    TwoFactorException, UnknownObjectException)
-from requests.exceptions import ConnectionError  # Error de conexão
-from requests.exceptions import ReadTimeout  # Error de conexão
-from sqlalchemy.exc import OperationalError
 
+
+from fexservice.exception import ConsumerCritical, ConsumerWarning
+from fexservice.logger import logger
 import fexservice.validator
-from fexservice.logger import create_logger
 
-logger = create_logger(__name__)
 
 # Fire the validator settings
 settings.validators.validate()
@@ -27,8 +19,8 @@ except AttributeError as e:
 
 # TODO: Usar dynaconf Validators
 if "sqlite:" == settings.DATABASE_URL[:7]:
-    # Check which is the database system, and if it is sqlite, send an alert that
-    # the sqlite database is being used
+    # Check which is the database system, and if it is sqlite, send an alert
+    # that the sqlite database is being used
     logger.warning(
         "Attention you are using the sqlite database, if this is the "
         + "database system you are trying to use also this message"
@@ -45,7 +37,9 @@ def fetch_github():
         repositories = github.search_repositories(
             query=settings.SEARCH_QUERY, sort="stars"
         )
-
+        if 0 == repositories.totalCount:
+            logger.critical("Bad SEARCH_QUERY")
+            exit(1)
         for item in repositories:
             data = dict(
                 id=item.id,
@@ -60,18 +54,10 @@ def fetch_github():
             )
             repo.upsert(data, ["id"])
     # Erros de Internet
-    except (ConnectionError, ReadTimeout) as e:
+    except ConsumerWarning as e:
         logger.warning(e)
-    # Erros no GitHub
-    # Git except https://pygithub.readthedocs.io/en/latest/utilities.html
-    except (UnknownObjectException, RateLimitExceededException) as e:
-        logger.warning(e)
-    except (TwoFactorException, BadCredentialsException) as e:
+    except ConsumerCritical as e:
         # Erro na configuração
         logger.critical(e)
         exit(1)
-    # Erros do banco de dados
-    # https://docs.sqlalchemy.org/en/13/core/exceptions.html
-    except OperationalError as e:
-        logger.critical(e)
-        exit(1)
+
