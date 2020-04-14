@@ -1,16 +1,21 @@
 import dataset
-from dynaconf import settings
+from dynaconf import settings, Validator
 from github import Github
+
 
 from fexservice.Exception import ConsumerCritical, ConsumerWarning
 from fexservice.logger import logger
+import fexservice.validator
+
+
+# Fire the validator settings
+settings.validators.validate()
 
 try:
     github = Github(settings.GITHUB_TOKEN)
 except AttributeError as e:
     logger.critical(e)
     exit(1)
-
 
 # TODO: Usar dynaconf Validators
 if "sqlite:" == settings.DATABASE_URL[:7]:
@@ -55,3 +60,4 @@ def fetch_github():
         # Erro na configuração
         logger.critical(e)
         exit(1)
+
