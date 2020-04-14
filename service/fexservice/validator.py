@@ -1,0 +1,24 @@
+"""
+Autor - Douglas d'Auriol <ddauriol@gmail.com>
+Baseado na Live de Python e na documentaÃ§Ã£o do dynaconf
+https://dynaconf.readthedocs.io/en/latest/guides/validation.html
+"""
+from dynaconf import settings, Validator
+
+# Register validators
+# TODO - Validar os requsitos do GITHUB_TOKEN e os querisitos da SEARCH_QUERY
+settings.validators.register(
+    # Ensure some parameters exists (are required)
+    Validator('DB_USER', 'DB_NAME', 'GITHUB_TOKEN', 'SEARCH_QUERY', must_exist=True),
+
+    # Ensure some parameter mets a condition
+    # conditions: (eq, ne, lt, gt, lte, gte, identity, is_type_of, is_in, is_not_in)
+    # ValidaÃ§Ã£o de um valor mÃ­nimo para o DELAY e a PRIORITY
+    Validator('DELAY', gte=10),
+    Validator('PRIORITY', gte=100),
+
+    # validate a value is eq in specific env
+    # ValidalÃ§Ã£o do modelo de DB utilizado durante o Desenvolvimento e a produÃ§Ã£o
+    Validator('DATABASE_URL', eq='sqlite:///:memory:'), #TODO: Definir o Banco de produÃ§Ã£o e definir env=''
+)
+

@@ -42,9 +42,10 @@ def fetch_github():
                 full_name=item.full_name,
                 html_url=item.html_url,
                 description=item.description,
-                # TODO: falta colocar: data de ultimo commit/release
-                # TODO: quant stars
-                # TODO: quant de contribuidores
+                created_at=item.created_at,
+                updated_at=item.updated_at,
+                stargazers_count=item.stargazers_count,
+                forks_count=item.forks_count
             )
             repo.upsert(data, ["id"])
     # Erros de Internet
