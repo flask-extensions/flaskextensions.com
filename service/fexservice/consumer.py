@@ -3,7 +3,7 @@ from dynaconf import settings, Validator
 from github import Github
 
 
-from fexservice.Exception import ConsumerCritical, ConsumerWarning
+from fexservice.exception import ConsumerCritical, ConsumerWarning
 from fexservice.logger import logger
 import fexservice.validator
 
