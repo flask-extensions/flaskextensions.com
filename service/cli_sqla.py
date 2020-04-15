@@ -1,6 +1,11 @@
 from dynaconf import settings
 from github import Github
-from sqlalchemy import Boolean, Column, Integer, String, create_engine
+from sqlalchemy import (Boolean,
+                        Column,
+                        Integer,
+                        String,
+                        create_engine,
+                        DateTime)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -23,6 +28,10 @@ class Repo(Base):
     full_name = Column(String)
     archived = Column(Boolean)
     html_url = Column(String)
+    created_at = Column(DateTime)
+    updated_at = Column(DateTime)
+    stargazers_count = Column(Integer)
+    forks_count = Column(Integer)
 
     def __repr__(self):
         return f"Repo {self.full_name}"
@@ -38,6 +47,10 @@ for item in repositories:
         name=item.name,
         full_name=item.full_name,
         html_url=item.html_url,
+        created_at=item.created_at,
+        updated_at=item.updated_at,
+        stargazers_count=item.stargazers_count,
+        forks_count=item.forks_count
     )
     session.add(repo)
 

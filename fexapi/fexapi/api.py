@@ -8,6 +8,7 @@ import databases
 import sqlalchemy
 from fastapi import FastAPI
 from pydantic import BaseModel
+from datetime import datetime
 
 # SQLAlchemy specific code, as with any other app
 DATABASE_URL = "postgresql://fexservice:password@localhost/fexservice"
@@ -24,6 +25,10 @@ repos = sqlalchemy.Table(
     sqlalchemy.Column("name", sqlalchemy.String),
     sqlalchemy.Column("html_url", sqlalchemy.String),
     sqlalchemy.Column("description", sqlalchemy.Text, nullable=True),
+    sqlalchemy.Column("created_at", sqlalchemy.DateTime, nullable=True),
+    sqlalchemy.Column("updated_at", sqlalchemy.DateTime, nullable=True),
+    sqlalchemy.Column("stargazers_count", sqlalchemy.Integer),
+    sqlalchemy.Column("forks_count", sqlalchemy.Integer),
 )
 
 engine = sqlalchemy.create_engine(
@@ -37,6 +42,10 @@ class Repo(BaseModel):
     name: str
     html_url: str
     description: Optional[str]
+    created_at: datetime
+    updated_at: datetime
+    stargazers_count: int
+    forks_count: int
 
 
 app = FastAPI()
