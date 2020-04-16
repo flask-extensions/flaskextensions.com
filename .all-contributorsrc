@@ -5,7 +5,7 @@
   ],
   "imageSize": 100,
   "contributorsPerLine": 7,
-  "commit":false,
+  "commit": false,
   "skipCi": true,
   "contributors": [
     {
@@ -15,7 +15,8 @@
       "profile": "http://jairomr.com.br",
       "contributions": [
         "code",
-        "doc"
+        "doc",
+        "review"
       ]
     },
     {
@@ -38,7 +39,7 @@
     }
   ],
   "projectName": "flaskextensions.com",
-  "projectOwner": "rochacbruno",
+  "projectOwner": "jairomr",
   "repoType": "github",
   "repoHost": "https://github.com"
 }
