@@ -49,6 +49,15 @@
         "review",
         "code"
       ]
+    },
+    {
+      "login": "ddauriol",
+      "name": "Douglas Maciel d'Auriol Souza",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/44655942?v=4",
+      "profile": "https://github.com/ddauriol",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
