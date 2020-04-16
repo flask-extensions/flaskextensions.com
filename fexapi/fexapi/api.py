@@ -2,13 +2,14 @@
 # /extension/1 - {...}
 # /extension/?query=...  [{}, ..]  [GET]
 
+from datetime import datetime
 from typing import List, Optional
 
-import databases
 import sqlalchemy
+
+import databases
 from fastapi import FastAPI
 from pydantic import BaseModel
-from datetime import datetime
 
 # SQLAlchemy specific code, as with any other app
 DATABASE_URL = "postgresql://fexservice:password@localhost/fexservice"

@@ -3,7 +3,7 @@ Autor - Douglas d'Auriol <ddauriol@gmail.com>
 Baseado na Live de Python e na documentação do dynaconf
 https://dynaconf.readthedocs.io/en/latest/guides/validation.html
 """
-from dynaconf import settings, Validator
+from dynaconf import Validator, settings
 
 # Register validators
 # TODO - Validar os requsitos do GITHUB_TOKEN e os querisitos da SEARCH_QUERY

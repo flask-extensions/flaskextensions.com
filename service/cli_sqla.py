@@ -1,11 +1,7 @@
 from dynaconf import settings
 from github import Github
-from sqlalchemy import (Boolean,
-                        Column,
-                        Integer,
-                        String,
-                        create_engine,
-                        DateTime)
+from sqlalchemy import (Boolean, Column, DateTime, Integer, String,
+                        create_engine)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
