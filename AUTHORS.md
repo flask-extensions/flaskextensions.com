@@ -26,7 +26,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://jairomr.com.br"><img src="https://avatars0.githubusercontent.com/u/7321240?v=4" width="100px;" alt=""/><br /><sub><b>Jairo Matos Da Rocha</b></sub></a><br /><a href="https://github.com/jairomr/flaskextensions.com/commits?author=jairomr" title="Code">💻</a> <a href="https://github.com/jairomr/flaskextensions.com/commits?author=jairomr" title="Documentation">📖</a> <a href="https://github.com/jairomr/flaskextensions.com/pulls?q=is%3Apr+reviewed-by%3Ajairomr" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="http://brunorocha.org"><img src="https://avatars2.githubusercontent.com/u/458654?v=4" width="100px;" alt=""/><br /><sub><b>Bruno Rocha</b></sub></a><br /><a href="https://github.com/jairomr/flaskextensions.com/commits?author=rochacbruno" title="Code">💻</a></td>
+    <td align="center"><a href="http://brunorocha.org"><img src="https://avatars2.githubusercontent.com/u/458654?v=4" width="100px;" alt=""/><br /><sub><b>Bruno Rocha</b></sub></a><br /><a href="https://github.com/jairomr/flaskextensions.com/commits?author=rochacbruno" title="Code">💻</a> <a href="#video-rochacbruno" title="Videos">📹</a> <a href="#ideas-rochacbruno" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-rochacbruno" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://mtrsk.gitlab.io/"><img src="https://avatars0.githubusercontent.com/u/16356569?v=4" width="100px;" alt=""/><br /><sub><b>Marcos Benevides</b></sub></a><br /><a href="https://github.com/jairomr/flaskextensions.com/commits?author=mtrsk" title="Code">💻</a></td>
   </tr>
 </table>
