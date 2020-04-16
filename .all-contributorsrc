@@ -36,6 +36,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "fabricio-aguiar",
+      "name": "Fabricio Aguiar",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17153022?v=4",
+      "profile": "https://fabricio-aguiar.github.io/",
+      "contributions": [
+        "review",
+        "code"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
