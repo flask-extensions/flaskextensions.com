@@ -2,6 +2,7 @@
 # /extension/1 - {...}
 # /extension/?query=...  [{}, ..]  [GET]
 
+from dynaconf import settings
 from datetime import datetime
 from typing import List, Optional
 
@@ -12,10 +13,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 # SQLAlchemy specific code, as with any other app
-DATABASE_URL = "postgresql://fexservice:password@localhost/fexservice"
+# DATABASE_URL = "postgresql://fexservice:password@localhost/fexservice"
 # DATABASE_URL = "postgresql://user:password@postgresserver/db"
 
-database = databases.Database(DATABASE_URL)
+database = databases.Database(settings.DATABASE_URL)
 
 metadata = sqlalchemy.MetaData()
 
@@ -32,9 +33,9 @@ repos = sqlalchemy.Table(
     sqlalchemy.Column("forks_count", sqlalchemy.Integer),
 )
 
-engine = sqlalchemy.create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}
-)
+# engine = sqlalchemy.create_engine(
+#     settings.DATABASE_URL, connect_args={"check_same_thread": False}
+# )
 # metadata.create_all(engine)
 
 

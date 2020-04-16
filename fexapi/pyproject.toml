@@ -10,6 +10,7 @@ fastapi = {version = "^0.54.1", extras = ["all"]}
 databases = "^0.2.6"
 asyncpg = "^0.20.1"
 psycopg2 = "^2.8.5"
+dynaconf = "^2.2.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.6"
