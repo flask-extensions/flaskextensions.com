@@ -6,8 +6,24 @@ volumes:
 
 services:
 
+  fexapi:
+    build: 
+      context: .
+      dockerfile: ./docker/api/Dockerfile
+    restart: always
+    depends_on:
+      - "db"
+    environment:
+      - DYNACONF_DATABASE_URL="postgresql://fexservice:password@db/fexservice"
+    volumes:
+      - ./fexapi:/fexapi
+    ports:
+      - "8000:8000"
+
   fexservice:
-    build: .
+    build: 
+      context: .
+      dockerfile: ./docker/service/Dockerfile
     restart: always
     depends_on:
       - "db"
