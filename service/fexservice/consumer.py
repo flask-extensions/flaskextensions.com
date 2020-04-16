@@ -1,5 +1,5 @@
 import dataset
-from dynaconf import settings, Validator
+from dynaconf import settings
 from github import Github
 
 
@@ -50,7 +50,7 @@ def fetch_github():
                 created_at=item.created_at,
                 updated_at=item.updated_at,
                 stargazers_count=item.stargazers_count,
-                forks_count=item.forks_count
+                forks_count=item.forks_count,
             )
             repo.upsert(data, ["id"])
     # Erros de Internet
@@ -60,4 +60,3 @@ def fetch_github():
         # Erro na configuração
         logger.critical(e)
         exit(1)
-
