@@ -7,9 +7,12 @@ https://pygithub.readthedocs.io/en/latest/utilities.html
 from github.GithubException import BadAttributeException  # TODO
 from github.GithubException import BadUserAgentException  # TODO
 from github.GithubException import IncompletableObject  # TODO
-from github.GithubException import (BadCredentialsException,
-                                    RateLimitExceededException,
-                                    TwoFactorException, UnknownObjectException)
+from github.GithubException import (
+    BadCredentialsException,
+    RateLimitExceededException,
+    TwoFactorException,
+    UnknownObjectException,
+)
 from requests.exceptions import ConnectionError  # Error de conexão
 from requests.exceptions import ReadTimeout  # Error de conexão
 from sqlalchemy.exc import OperationalError
