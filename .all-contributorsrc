@@ -1,5 +1,8 @@
 {
-  "files": ["AUTHORS.md"],
+  "files": [
+    "AUTHORS.md",
+    "README.md"
+  ],
   "imageSize": 100,
   "contributorsPerLine": 7,
   "contributorsSortAlphabetically": false,
@@ -12,6 +15,29 @@
       "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
     }
   },
-  "skipCi": "true",
-  "contributors": []
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "jairomr",
+      "name": "Jairo Matos Da Rocha",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7321240?v=4",
+      "profile": "http://jairomr.com.br",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "rochacbruno",
+      "name": "Bruno Rocha",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/458654?v=4",
+      "profile": "http://brunorocha.org",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "projectName": "flaskextensions.com",
+  "projectOwner": "jairomr",
+  "repoType": "github",
+  "repoHost": "https://github.com"
 }
