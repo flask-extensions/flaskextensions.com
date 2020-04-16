@@ -5,6 +5,7 @@
   ],
   "imageSize": 100,
   "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": true,
   "commit": false,
   "skipCi": true,
   "contributors": [
