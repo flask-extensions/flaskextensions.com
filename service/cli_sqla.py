@@ -1,11 +1,13 @@
 from dynaconf import settings
 from github import Github
-from sqlalchemy import (Boolean,
-                        Column,
-                        Integer,
-                        String,
-                        create_engine,
-                        DateTime)
+from sqlalchemy import (
+    Boolean,
+    Column,
+    DateTime,
+    Integer,
+    String,
+    create_engine,
+)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -50,7 +52,7 @@ for item in repositories:
         created_at=item.created_at,
         updated_at=item.updated_at,
         stargazers_count=item.stargazers_count,
-        forks_count=item.forks_count
+        forks_count=item.forks_count,
     )
     session.add(repo)
 

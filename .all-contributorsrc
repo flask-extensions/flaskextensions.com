@@ -1,0 +1,79 @@
+{
+  "files": [
+    "AUTHORS.md",
+    "README.md"
+  ],
+  "imageSize": 100,
+  "contributorsPerLine": 7,
+  "contributorsSortAlphabetically": true,
+  "commit": false,
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "rochacbruno",
+      "name": "Bruno Rocha",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/458654?v=4",
+      "profile": "http://brunorocha.org",
+      "contributions": [
+        "code",
+        "video",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "mtrsk",
+      "name": "Marcos Benevides",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/16356569?v=4",
+      "profile": "https://mtrsk.gitlab.io/",
+      "contributions": [
+        "code",
+        "review",
+        "test"
+      ]
+    },
+    {
+      "login": "fabricio-aguiar",
+      "name": "Fabricio Aguiar",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17153022?v=4",
+      "profile": "https://fabricio-aguiar.github.io/",
+      "contributions": [
+        "review",
+        "code"
+      ]
+    },
+    {
+      "login": "jairomr",
+      "name": "Jairo Matos Da Rocha",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7321240?v=4",
+      "profile": "http://jairomr.com.br",
+      "contributions": [
+        "code",
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "ddauriol",
+      "name": "Douglas Maciel d'Auriol Souza",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/44655942?v=4",
+      "profile": "https://github.com/ddauriol",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "marcosf63",
+      "name": "Marcos Oliveira",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/4137898?v=4",
+      "profile": "https://github.com/marcosf63",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "projectName": "flaskextensions.com",
+  "projectOwner": "jairomr",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}

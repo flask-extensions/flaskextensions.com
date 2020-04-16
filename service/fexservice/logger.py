@@ -2,6 +2,7 @@
 Autor - Jairo Matos da Rocha <devjairomr@gmail.com>
 """
 from dynaconf import settings
+
 from loguru import logger
 
 formatter = "[ {level.icon}{level:^10}] {time:YYYY-MM-DD hh:mm:ss} {file} - {name}: {message}"
