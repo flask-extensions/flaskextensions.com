@@ -15,4 +15,5 @@ This is a collaborative project, mostly created during live streming on https://
 - Marcos Oliveira <marcosf63@gmail.com>
 - Jairo Rocha <devjairomr@gmail.com> - @jairomr
 
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)"
