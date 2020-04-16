@@ -12,7 +12,9 @@ services:
     depends_on:
       - "db"
     environment:
-      - DYNACONF_DATABASE_URL="@format postgresql+psycopg2://fexservice:password@db/fexservice"
+      - DYNACONF_DATABASE_URL="postgresql+psycopg2://fexservice:password@db/fexservice"
+    volumes:
+      - ./service:/service
 
   db:
     image: postgres:12.1
