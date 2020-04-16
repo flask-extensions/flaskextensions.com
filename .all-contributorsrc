@@ -10,17 +10,6 @@
   "skipCi": true,
   "contributors": [
     {
-      "login": "jairomr",
-      "name": "Jairo Matos Da Rocha",
-      "avatar_url": "https://avatars0.githubusercontent.com/u/7321240?v=4",
-      "profile": "http://jairomr.com.br",
-      "contributions": [
-        "code",
-        "doc",
-        "review"
-      ]
-    },
-    {
       "login": "rochacbruno",
       "name": "Bruno Rocha",
       "avatar_url": "https://avatars2.githubusercontent.com/u/458654?v=4",
@@ -51,6 +40,17 @@
       "contributions": [
         "review",
         "code"
+      ]
+    },
+    {
+      "login": "jairomr",
+      "name": "Jairo Matos Da Rocha",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7321240?v=4",
+      "profile": "http://jairomr.com.br",
+      "contributions": [
+        "code",
+        "doc",
+        "review"
       ]
     },
     {
