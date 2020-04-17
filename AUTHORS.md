@@ -34,7 +34,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://youtube.com/c/eduardomendes"><img src="https://avatars1.githubusercontent.com/u/6801122?v=4" width="100px;" alt=""/><br /><sub><b>Eduardo Mendes</b></sub></a><br /><a href="#tutorial-dunossauro" title="Tutorials">✅</a> <a href="#video-dunossauro" title="Videos">📹</a> <a href="https://github.com/flask-extensions/flaskextensions.com/commits?author=dunossauro" title="Code">💻</a> <a href="https://github.com/flask-extensions/flaskextensions.com/pulls?q=is%3Apr+reviewed-by%3Adunossauro" title="Reviewed Pull Requests">👀</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://blog.doseextra.com"><img src="https://avatars1.githubusercontent.com/u/15989303?v=4" width="100px;" alt=""/><br /><sub><b>Regis Tomkiel</b></sub></a><br /><a href="https://github.com/flask-extensions/flaskextensions.com/commits?author=rtomkiel" title="Code">💻</a> <a href="#example-rtomkiel" title="Examples">💡</a></td>
+    <td align="center"><a href="https://blog.doseextra.com"><img src="https://avatars1.githubusercontent.com/u/15989303?v=4" width="100px;" alt=""/><br /><sub><b>Regis Tomkiel</b></sub></a><br /><a href="https://github.com/flask-extensions/flaskextensions.com/commits?author=rtomkiel" title="Code">💻</a> <a href="#example-rtomkiel" title="Examples">💡</a> <a href="#ideas-rtomkiel" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
