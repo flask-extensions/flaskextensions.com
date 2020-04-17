@@ -81,6 +81,16 @@
         "video",
         "code"
       ]
+    },
+    {
+      "login": "devgiordane",
+      "name": "Giordane Oliveira",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7908354?v=4",
+      "profile": "https://devgiordane.com",
+      "contributions": [
+        "design",
+        "ideas"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
