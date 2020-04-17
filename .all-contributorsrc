@@ -70,10 +70,21 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "dunossauro",
+      "name": "Eduardo Mendes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6801122?v=4",
+      "profile": "http://youtube.com/c/eduardomendes",
+      "contributions": [
+        "tutorial",
+        "video",
+        "code"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
-  "projectOwner": "jairomr",
+  "projectOwner": "flask-extensions",
   "repoType": "github",
   "repoHost": "https://github.com"
 }
