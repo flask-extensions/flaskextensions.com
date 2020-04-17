@@ -82,6 +82,16 @@
         "code",
         "review"
       ]
+    },
+    {
+      "login": "rtomkiel",
+      "name": "Regis Tomkiel",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/15989303?v=4",
+      "profile": "https://blog.doseextra.com",
+      "contributions": [
+        "code",
+        "example"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
