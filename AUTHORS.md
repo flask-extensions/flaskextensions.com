@@ -36,6 +36,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://spacedevs.com.br"><img src="https://avatars2.githubusercontent.com/u/9499562?v=4" width="100px;" alt=""/><br /><sub><b>Marcus Pereira</b></sub></a><br /><a href="https://github.com/flask-extensions/flaskextensions.com/commits?author=MarcusMann" title="Code">💻</a> <a href="#ideas-MarcusMann" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://devgiordane.com"><img src="https://avatars1.githubusercontent.com/u/7908354?v=4" width="100px;" alt=""/><br /><sub><b>Giordane Oliveira</b></sub></a><br /><a href="#design-devgiordane" title="Design">🎨</a> <a href="#ideas-devgiordane" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
