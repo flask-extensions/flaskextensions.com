@@ -81,6 +81,16 @@
         "video",
         "code"
       ]
+    },
+    {
+      "login": "MarcusMann",
+      "name": "Marcus Pereira",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9499562?v=4",
+      "profile": "http://spacedevs.com.br",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
