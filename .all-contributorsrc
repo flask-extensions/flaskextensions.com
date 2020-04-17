@@ -91,6 +91,25 @@
       "contributions": [
         "code",
         "example",
+      ]
+     },
+     {
+      "login": "MarcusMann",
+      "name": "Marcus Pereira",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9499562?v=4",
+      "profile": "http://spacedevs.com.br",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "devgiordane",
+      "name": "Giordane Oliveira",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7908354?v=4",
+      "profile": "https://devgiordane.com",
+      "contributions": [
+        "design",
         "ideas"
       ]
     }
