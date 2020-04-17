@@ -2,19 +2,15 @@
 # /extension/1 - {...}
 # /extension/?query=...  [{}, ..]  [GET]
 
-from dynaconf import settings
 from datetime import datetime
 from typing import List, Optional
 
-import sqlalchemy
-
 import databases
+import sqlalchemy
+from dynaconf import settings
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-
-# SQLAlchemy specific code, as with any other app
-# DATABASE_URL = "postgresql://fexservice:password@localhost/fexservice"
-# DATABASE_URL = "postgresql://user:password@postgresserver/db"
 
 database = databases.Database(settings.DATABASE_URL)
 
@@ -33,11 +29,6 @@ repos = sqlalchemy.Table(
     sqlalchemy.Column("forks_count", sqlalchemy.Integer),
 )
 
-# engine = sqlalchemy.create_engine(
-#     settings.DATABASE_URL, connect_args={"check_same_thread": False}
-# )
-# metadata.create_all(engine)
-
 
 class Repo(BaseModel):
     id: int
@@ -52,6 +43,16 @@ class Repo(BaseModel):
 
 app = FastAPI()
 
+origins = [settings.CORS_ORIGINS]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.on_event("startup")
 async def startup():
@@ -65,5 +66,6 @@ async def shutdown():
 
 @app.get("/extension/", response_model=List[Repo])
 async def read_repos():
+    # /extension/?search="login"
     query = repos.select()
     return await database.fetch_all(query)

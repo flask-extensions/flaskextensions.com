@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.css" />
+
+    <style></style>
+</head>
+
+<body>
+    <div id="app">
+
+        <section class="hero is-primary is-medium">
+            <!-- Hero head: will stick at the top -->
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a class="navbar-item">
+                                <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+                            </a>
+                            <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </div>
+                        <div id="navbarMenuHeroA" class="navbar-menu">
+                            <div class="navbar-end">
+                                <a class="navbar-item is-active">
+                                    Home
+                                </a>
+                                <a class="navbar-item">
+                                    Examples
+                                </a>
+                                <a class="navbar-item">
+                                    Documentation
+                                </a>
+                                <span class="navbar-item">
+                                    <a class="button is-primary is-inverted">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Download</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Hero content: will be in the middle -->
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h1 class="title">
+                        Title
+                    </h1>
+                    <h2 class="subtitle">
+                        Subtitle
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Hero footer: will stick at the bottom -->
+            <div class="hero-foot">
+                <nav class="tabs">
+                    <div class="container">
+                        <ul>
+                            <li class="is-active"><a>Overview</a></li>
+                            <li><a>Modifiers</a></li>
+                            <li><a>Grid</a></li>
+                            <li><a>Elements</a></li>
+                            <li><a>Components</a></li>
+                            <li><a>Layout</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+
+        <section class="section">
+            <div class="container">
+                <div class="columns is-multiline">
+                    <div class="column is-3-desktop is-6-tablet is-flex">
+                        <!-- filtros -->
+                        <article class="panel is-primary">
+                            <p class="panel-heading">
+                                Primary
+                            </p>
+                            <p class="panel-tabs">
+                                <a class="is-active">All</a>
+                                <a>Public</a>
+                                <a>Private</a>
+                                <a>Sources</a>
+                                <a>Forks</a>
+                            </p>
+                            <div class="panel-block">
+                                <p class="control has-icons-left">
+                                    <input v-model="result" class="input is-primary" type="text" placeholder="Search">
+                                    <span class="icon is-left">
+                                        <i class="fas fa-search" aria-hidden="true"></i>
+                                    </span>
+                                    {{result}}
+                                </p>
+                            </div>
+                            <a class="panel-block is-active">
+                                <span class="panel-icon">
+                                    <i class="fas fa-book" aria-hidden="true"></i>
+                                </span>
+                                bulma
+                            </a>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-book" aria-hidden="true"></i>
+                                </span>
+                                marksheet
+                            </a>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-book" aria-hidden="true"></i>
+                                </span>
+                                minireset.css
+                            </a>
+                            <a class="panel-block">
+                                <span class="panel-icon">
+                                    <i class="fas fa-book" aria-hidden="true"></i>
+                                </span>
+                                jgthms.github.io
+                            </a>
+                        </article>
+                    </div>
+                    <!-- for -->
+                    <div v-for="extension in textSearch" v-bind:key="extension.id"
+                        class="column is-3-desktop is-6-tablet is-flex">
+                        <div class="card card-flex">
+                            <header class="card-header">
+                                <p class="card-header-title is-size-3">
+                                    <a :href="extension.html_url">
+                                        {{extension.name}}
+                                    </a>
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                                    <span class="icon">
+                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </header>
+
+                            <div class="card-content">
+                                <p>{{ extension.description }}</p>
+                                <time :datetime="extension.updated_at">
+                                    {{ extension.updated_at }}
+                                </time>
+                            </div>
+                            <footer class="card-footer">
+                                <a class="card-footer-item" :href="extension.html_url">LER MAIS</a>
+                            </footer>
+                        </div>
+                    </div>
+                    <!-- endfor -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                extensions: [],
+                result: ""
+            },
+            async mounted() {
+                const resp = await axios.get('http://localhost:8000/extension/')
+                this.extensions = resp.data
+            },
+            computed: {
+                textSearch() {
+                    return this.extensions.filter(
+                        extension => extension.name.toLowerCase().match(this.result.toLowerCase())
+                    )
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
