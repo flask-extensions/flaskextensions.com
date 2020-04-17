@@ -14,7 +14,7 @@ services:
     depends_on:
       - "db"
     environment:
-      - DYNACONF_DATABASE_URL="postgresql://fexservice:password@db/fexservice"
+      - DYNACONF_DATABASE_URL=${FEXAPI_DATABASE_URL}
     volumes:
       - ./fexapi:/fexapi
     ports:
@@ -28,7 +28,7 @@ services:
     depends_on:
       - "db"
     environment:
-      - DYNACONF_DATABASE_URL="postgresql+psycopg2://fexservice:password@db/fexservice"
+      - DYNACONF_DATABASE_URL=${FEXSERVICE_DATABASE_URL}
     volumes:
       - ./service:/service
 
@@ -36,9 +36,9 @@ services:
     image: postgres:12.1
     restart: always
     environment:
-      - POSTGRES_USER=fexservice
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=fexservice
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - data:/var/lib/postgresql/data
     ports:
