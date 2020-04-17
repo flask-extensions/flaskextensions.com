@@ -33,6 +33,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/marcosf63"><img src="https://avatars1.githubusercontent.com/u/4137898?v=4" width="100px;" alt=""/><br /><sub><b>Marcos Oliveira</b></sub></a><br /><a href="https://github.com/flask-extensions/flaskextensions.com/commits?author=marcosf63" title="Code">💻</a></td>
     <td align="center"><a href="http://youtube.com/c/eduardomendes"><img src="https://avatars1.githubusercontent.com/u/6801122?v=4" width="100px;" alt=""/><br /><sub><b>Eduardo Mendes</b></sub></a><br /><a href="#tutorial-dunossauro" title="Tutorials">✅</a> <a href="#video-dunossauro" title="Videos">📹</a> <a href="https://github.com/flask-extensions/flaskextensions.com/commits?author=dunossauro" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://devgiordane.com"><img src="https://avatars1.githubusercontent.com/u/7908354?v=4" width="100px;" alt=""/><br /><sub><b>Giordane Oliveira</b></sub></a><br /><a href="#design-devgiordane" title="Design">🎨</a> <a href="#ideas-devgiordane" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
