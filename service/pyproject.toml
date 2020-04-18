@@ -3,6 +3,7 @@ name = "fexservice"
 version = "0.1.0"
 description = ""
 authors = ["Bruno Rocha <rochacbruno@gmail.com>"]
+license = "GPL-3.9-only"
 
 [tool.poetry.scripts]
 fexservice = "fexservice.cli:cli"
