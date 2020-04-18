@@ -3,7 +3,8 @@ FROM python:3.8 AS build-env
 ARG POETRY_VERSION=1.0.5
 RUN pip install poetry=="$POETRY_VERSION"
 # Copia o lockfile e pyproject.toml primeiro para cachear melhor a imagem
-COPY ./service/pyproject.toml /service/poetry.lock /service/
+COPY ./service/pyproject.toml /service/pyproject.toml
+COPY ./service/poetry.lock /service/poetry.lock
 COPY ./service /service
 WORKDIR /service
 RUN poetry build
