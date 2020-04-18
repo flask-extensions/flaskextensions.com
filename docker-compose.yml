@@ -29,6 +29,7 @@ services:
       - "db"
     environment:
       - DYNACONF_DATABASE_URL=${FEXSERVICE_DATABASE_URL}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
     volumes:
       - ./service:/service
 
