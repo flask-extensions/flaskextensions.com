@@ -2,7 +2,7 @@
 FROM python:3.8 AS build-env
 ARG POETRY_VERSION=1.0.5
 RUN pip install poetry=="$POETRY_VERSION"
-# Copy the lockfile and pyproject.toml first to better cache the image
+# Copia o lockfile e pyproject.toml primeiro para cachear melhor a imagem
 COPY ./fexapi/pyproject.toml /fexapi/poetry.lock /fexapi/
 COPY ./fexapi /fexapi
 WORKDIR /fexapi
