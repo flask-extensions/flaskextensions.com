@@ -44,6 +44,11 @@ jobs:
           poetry install
         if: steps.cache.outputs.cache-hit != 'true'
 
+      - name: Typecheck services with mypy
+        run: |
+          cd service
+          poetry run mypy fexservice/ cli.py
+
       - name: Run fexservice
         env:
           DYNACONF_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
