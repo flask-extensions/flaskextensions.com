@@ -54,13 +54,13 @@ jobs:
 
       - name: Typecheck services with mypy
         run: |
-          cd service
+          cd fexservice
           poetry run mypy fexservice/
 
       - name: Run fexservice
         env:
           DYNACONF_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd service
+          cd fexservice
           sed -i 's/blocking=True/blocking=False/g' fexservice/cli.py
           poetry run fexservice
