@@ -6,7 +6,7 @@ Within each package __fexapi__ or __service__:
 ```
 poetry env use 3.8
 poetry shell
-poetry update 
+poetry install 
 ```
 
 # Generating changelog - Towncrier
