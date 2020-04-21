@@ -55,7 +55,7 @@ jobs:
       - name: Typecheck services with mypy
         run: |
           cd service
-          poetry run mypy fexservice/ cli.py
+          poetry run mypy fexservice/ cli_sqla.py
 
       - name: Run fexservice
         env:
