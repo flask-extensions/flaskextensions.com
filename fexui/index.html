@@ -2,194 +2,257 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.css" />
-
-    <style></style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flask Extensions</title>
+  <link rel="stylesheet" href="/bulma.css" />
+  <link rel="stylesheet" href="/custom.css" />
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
-<body>
-    <div id="app">
-
-        <section class="hero is-primary is-medium">
-            <!-- Hero head: will stick at the top -->
-            <div class="hero-head">
-                <nav class="navbar">
-                    <div class="container">
-                        <div class="navbar-brand">
-                            <a class="navbar-item">
-                                <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
-                            </a>
-                            <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </span>
-                        </div>
-                        <div id="navbarMenuHeroA" class="navbar-menu">
-                            <div class="navbar-end">
-                                <a class="navbar-item is-active">
-                                    Home
-                                </a>
-                                <a class="navbar-item">
-                                    Examples
-                                </a>
-                                <a class="navbar-item">
-                                    Documentation
-                                </a>
-                                <span class="navbar-item">
-                                    <a class="button is-primary is-inverted">
-                                        <span class="icon">
-                                            <i class="fab fa-github"></i>
-                                        </span>
-                                        <span>Download</span>
-                                    </a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-
-            <!-- Hero content: will be in the middle -->
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="title">
-                        Title
-                    </h1>
-                    <h2 class="subtitle">
-                        Subtitle
-                    </h2>
+<body class="site">
+  <main class="site-container">
+    <section class="hero">
+      <div class="hero-head has-background-primary">
+        <div class="container">
+          <div class="column">
+            <form action="">
+              <div class="field has-addons">
+                <input type="search" placeholder="Insert a extension title" class="input is-large" name="" id="">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns filters">
+            <div class="column is-2">
+              <form action="">
+                <div class="field">
+                  <label for="" class="label">Uptime</label>
+                  <div class="control select is-rounded">
+                    <select name="" id="">
+                      <option value="">Select By Uptime</option>
+                    </select>
+                  </div>
                 </div>
-            </div>
-
-            <!-- Hero footer: will stick at the bottom -->
-            <div class="hero-foot">
-                <nav class="tabs">
-                    <div class="container">
-                        <ul>
-                            <li class="is-active"><a>Overview</a></li>
-                            <li><a>Modifiers</a></li>
-                            <li><a>Grid</a></li>
-                            <li><a>Elements</a></li>
-                            <li><a>Components</a></li>
-                            <li><a>Layout</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </section>
-
-
-        <section class="section">
-            <div class="container">
-                <div class="columns is-multiline">
-                    <div class="column is-3-desktop is-6-tablet is-flex">
-                        <!-- filtros -->
-                        <article class="panel is-primary">
-                            <p class="panel-heading">
-                                Primary
-                            </p>
-                            <p class="panel-tabs">
-                                <a class="is-active">All</a>
-                                <a>Public</a>
-                                <a>Private</a>
-                                <a>Sources</a>
-                                <a>Forks</a>
-                            </p>
-                            <div class="panel-block">
-                                <p class="control has-icons-left">
-                                    <input v-model="result" class="input is-primary" type="text" placeholder="Search">
-                                    <span class="icon is-left">
-                                        <i class="fas fa-search" aria-hidden="true"></i>
-                                    </span>
-                                    {{result}}
-                                </p>
-                            </div>
-                            <a class="panel-block is-active">
-                                <span class="panel-icon">
-                                    <i class="fas fa-book" aria-hidden="true"></i>
-                                </span>
-                                bulma
-                            </a>
-                            <a class="panel-block">
-                                <span class="panel-icon">
-                                    <i class="fas fa-book" aria-hidden="true"></i>
-                                </span>
-                                marksheet
-                            </a>
-                            <a class="panel-block">
-                                <span class="panel-icon">
-                                    <i class="fas fa-book" aria-hidden="true"></i>
-                                </span>
-                                minireset.css
-                            </a>
-                            <a class="panel-block">
-                                <span class="panel-icon">
-                                    <i class="fas fa-book" aria-hidden="true"></i>
-                                </span>
-                                jgthms.github.io
-                            </a>
-                        </article>
-                    </div>
-                    <!-- for -->
-                    <div v-for="extension in textSearch" v-bind:key="extension.id"
-                        class="column is-3-desktop is-6-tablet is-flex">
-                        <div class="card card-flex">
-                            <header class="card-header">
-                                <p class="card-header-title is-size-3">
-                                    <a :href="extension.html_url">
-                                        {{extension.name}}
-                                    </a>
-                                </p>
-                                <a href="#" class="card-header-icon" aria-label="more options">
-                                    <span class="icon">
-                                        <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                            </header>
-
-                            <div class="card-content">
-                                <p>{{ extension.description }}</p>
-                                <time :datetime="extension.updated_at">
-                                    {{ extension.updated_at }}
-                                </time>
-                            </div>
-                            <footer class="card-footer">
-                                <a class="card-footer-item" :href="extension.html_url">LER MAIS</a>
-                            </footer>
-                        </div>
-                    </div>
-                    <!-- endfor -->
+                <div class="field">
+                  <label for="" class="label">Categories</label>
+                  <div class="control select is-rounded">
+                    <select name="" id="">
+                      <option value="">Select a Category</option>
+                    </select>
+                  </div>
                 </div>
+                <div class="field">
+                  <label for="" class="label">License</label>
+                  <div class="control select is-rounded">
+                    <select name="" id="">
+                      <option value="">Select a License</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
             </div>
-        </section>
+            <div class="column">
+              <div class="columns is-multiline">
+                <div class="column is-one-third">
+                  <div class="box">
+                    <p class="card-header-title">Flask Extension</p>
+                    <div class="card-content">
+                      <p class="subtitle is-size-5 has-text-grey">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum officiis, animi iusto dolor
+                        quam numquam, cupiditate molestias tenetur nisi veniam quisquam, nulla nesciunt.
+                      </p>
+                      <p class="subtitle has-text-grey">
+                        - Bruno Rocha
+                      </p>
+                      <div class="level">
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-star"></i> stars
+                              <p class="is-size-7">
+                                33
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-calendar"></i> update
+                              <p class="is-size-7">
+                                24 days ago
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-edit"></i> commits
+                              <p class="is-size-7">
+                                24
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <div class="box">
+                    <p class="card-header-title">Flask-Simple Login</p>
+                    <div class="card-content">
+                      <p class="subtitle is-size-5 has-text-grey">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum officiis, animi iusto dolor
+                        quam numquam, cupiditate molestias tenetur nisi veniam quisquam, nulla nesciunt.
+                      </p>
+                      <p class="subtitle has-text-grey">
+                        - Bruno Rocha
+                      </p>
+                      <div class="level">
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-star"></i> stars
+                              <p class="is-size-7">
+                                33
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-calendar"></i> update
+                              <p class="is-size-7">
+                                24 days ago
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-edit"></i> commits
+                              <p class="is-size-7">
+                                24
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <div class="box">
+                    <p class="card-header-title">Flask-Simple Login</p>
+                    <div class="card-content">
+                      <p class="subtitle is-size-5 has-text-grey">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum officiis, animi iusto dolor
+                        quam numquam, cupiditate molestias tenetur nisi veniam quisquam, nulla nesciunt.
+                      </p>
+                      <p class="subtitle has-text-grey">
+                        - Bruno Rocha
+                      </p>
+                      <div class="level">
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-star"></i> stars
+                              <p class="is-size-7">
+                                33
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-calendar"></i> update
+                              <p class="is-size-7">
+                                24 days ago
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-edit"></i> commits
+                              <p class="is-size-7">
+                                24
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <div class="box notification is-danger">
+                    <p class="card-header-title has-text-light">Flask NotExist</p>
+                    <div class="card-content">
+                      <p class="subtitle is-size-5">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum officiis, animi iusto dolor
+                        quam numquam, cupiditate molestias tenetur nisi veniam quisquam, nulla nesciunt.
+                      </p>
+                      <p class="subtitle has-text-light">
+                        - Robert Fux
+                      </p>
+                      <div class="level">
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-star"></i> stars
+                              <p class="is-size-7">
+                                33
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-calendar"></i> update
+                              <p class="is-size-7">
+                                3 year ago
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="level-item has-text-centered">
+                          <div>
+                            <div class="heading">
+                              <i class="fas fa-edit"></i> commits
+                              <p class="is-size-7">
+                                3
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="section">
+      <p class="has-text-centered">Flask Extension Footer</p>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        new Vue({
-            el: "#app",
-            data: {
-                extensions: [],
-                result: ""
-            },
-            async mounted() {
-                const resp = await axios.get('http://localhost:8000/extension/')
-                this.extensions = resp.data
-            },
-            computed: {
-                textSearch() {
-                    return this.extensions.filter(
-                        extension => extension.name.toLowerCase().match(this.result.toLowerCase())
-                    )
-                }
-            }
-        });
-    </script>
+  </footer>
 </body>
 
 </html>

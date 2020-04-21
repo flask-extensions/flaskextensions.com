@@ -1,0 +1,21 @@
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.site-container {
+    flex: 1;
+}
+
+
+
+.level-item span.meta {
+    margin-left: 5px !important;
+}
+
+input[type=search] {
+    margin-bottom: 40px;
+}
+.filters form .field {
+    margin-top: 30px;
+}
