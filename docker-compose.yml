@@ -31,7 +31,7 @@ services:
       - DYNACONF_DATABASE_URL=${FEXSERVICE_DATABASE_URL}
       - DYNACONF_GITHUB_TOKEN=${GITHUB_TOKEN}
     volumes:
-      - ./service:/service
+      - ./fexservice:/fexservice
 
   db:
     image: postgres:12.1

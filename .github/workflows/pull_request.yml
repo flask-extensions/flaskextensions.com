@@ -40,7 +40,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd service
+          cd fexservice
           poetry install
         if: steps.cache.outputs.cache-hit != 'true'
 
