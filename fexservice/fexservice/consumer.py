@@ -2,11 +2,12 @@ import dataset
 from dynaconf import settings
 from github import Github
 
-import fexservice.validator
+from fexservice.validator import validators
 from fexservice.exception import ConsumerCritical, ConsumerWarning
 from fexservice.logger import logger
 
 # Fire the validator settings
+settings.validators.register(*validators)
 settings.validators.validate()
 
 try:
@@ -14,15 +15,6 @@ try:
 except AttributeError as e:
     logger.critical(e)
     exit(1)
-
-# TODO: Usar dynaconf Validators
-if "sqlite:" == settings.DATABASE_URL[:7]:
-    # Check which is the database system, and if it is sqlite, send an alert
-    # that the sqlite database is being used
-    logger.warning(
-        "Attention you are using the sqlite database, if this is the "
-        + "database system you are trying to use also this message"
-    )
 
 # TODO: ConnectionError
 db = dataset.connect(settings.DATABASE_URL, engine_kwargs={"echo": True})

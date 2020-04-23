@@ -16,6 +16,7 @@ dynaconf = "^2.2.3"
 pytest = "^4.6"
 flake8 = "^3.7.9"
 isort = "^4.3.21"
+mypy = "^0.770.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
