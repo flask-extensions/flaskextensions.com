@@ -130,6 +130,7 @@ dmypy.json
 
 # Ignore dynaconf secret files
 .secrets.*
+.variables.env
 
 # Ignore Temp Folders
 temp/

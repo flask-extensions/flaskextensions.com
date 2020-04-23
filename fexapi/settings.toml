@@ -1,3 +1,2 @@
 [default]
-DATABASE_URL = ""
 CORS_ORIGINS = "*"

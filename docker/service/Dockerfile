@@ -11,7 +11,7 @@ RUN poetry build
 
 # Instala e roda o projeto já empacotado
 FROM python:3.8 AS exec-env
-COPY --from=build-env /service/dist .
+COPY --from=build-env /fexservice/dist .
 RUN pip install *.whl
 WORKDIR /fexservice
 CMD ["fexservice"]

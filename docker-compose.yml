@@ -13,8 +13,8 @@ services:
     restart: always
     depends_on:
       - "db"
-    environment:
-      - DYNACONF_DATABASE_URL=${FEXAPI_DATABASE_URL}
+    env_file:
+      - '.variables.env'
     volumes:
       - ./fexapi:/fexapi
     ports:
@@ -27,19 +27,16 @@ services:
     restart: always
     depends_on:
       - "db"
-    environment:
-      - DYNACONF_DATABASE_URL=${FEXSERVICE_DATABASE_URL}
-      - DYNACONF_GITHUB_TOKEN=${GITHUB_TOKEN}
+    env_file:
+      - '.variables.env'
     volumes:
       - ./fexservice:/fexservice
 
   db:
     image: postgres:12.1
     restart: always
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+    env_file:
+      - '.variables.env'
     volumes:
       - data:/var/lib/postgresql/data
     ports:
