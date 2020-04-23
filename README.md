@@ -1,7 +1,51 @@
 ![Codeshow](https://github.com/flask-extensions/flaskextensions.com/workflows/Codeshow/badge.svg)
 
-# flaskextensions.com
-Website flaskextensions.com curated collection of Flask Extensions and its resources
+# FlaskExtensions.com
+
+Website http://flaskextensions.com curated collection of Flask Extensions and its resources
+
+
+## Why?
+
+There are some amazing Flask Extensions spread across github and gitlab repositories but we miss a place to aggregate and follow status of them all.
+
+## How?
+
+This project has been develped during live coding streams at https://twitch.tv/codeshow
+
+## Stack
+
+This project is divided in some services:
+
+- **FEXService** (__in_progress__)
+
+  Powered by **Python sched** Fetches data from Github API for every repo having `flask-extension` as a topic.
+
+- **FEXAPI** (__in_progress__)
+
+  Powered by **FastAPI** serves the data and provides search, pagination, aggregation etc.
+
+- **FEXUI** (__in_progress__)
+
+  Powered by **Vue.js** and **Bulma CSS** shows the web grid to search extensions.
+
+- **FEXTUI** (__todo__)
+
+  Powered by **Typer** and **Blessed** gives a UI to explore extensions at the terminal
+
+- **FEXWASM** (__todo__)
+
+  Powered by **Rust** and **WebAssembly** gives the same experience as desktop app
+
+- **FEXAPP** (__todo__)
+
+  **To Be Defined**
+
+
+## Contributing
+
+Read the instructions on [CONTRIBUTING.md](CONTRIBUTING.md)
+
 
 ## Contributors
 
