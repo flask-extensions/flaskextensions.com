@@ -29,7 +29,9 @@
       "contributions": [
         "code",
         "review",
-        "test"
+        "test",
+        "infra",
+        "maintenance"
       ]
     },
     {
@@ -92,8 +94,8 @@
         "code",
         "example"
       ]
-     },
-     {
+    },
+    {
       "login": "MarcusMann",
       "name": "Marcus Pereira",
       "avatar_url": "https://avatars2.githubusercontent.com/u/9499562?v=4",
