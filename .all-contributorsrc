@@ -114,6 +114,16 @@
         "design",
         "ideas"
       ]
+    },
+    {
+      "login": "Pbezerra-dev",
+      "name": "Herbety Paulo",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/51804133?v=4",
+      "profile": "https://www.linkedin.com/in/herbety-paulo-aa9a2b186/",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
