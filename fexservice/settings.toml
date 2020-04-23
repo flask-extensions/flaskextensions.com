@@ -1,7 +1,9 @@
 [default]
-DATABASE_URL = "sqlite:///:memory:"
 SEARCH_QUERY= "topic:\"flask-extension flask-extensions\"" 
 DELAY = 10
 PRIORITY = 100
 LOGGER_FILE = "log.log"
 LOGGER_LEVEL = "DEBUG"
+
+[development]
+DATABASE_URL = "sqlite:///:memory:"
