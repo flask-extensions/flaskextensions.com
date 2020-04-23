@@ -4,7 +4,6 @@ ARG POETRY_VERSION=1.0.5
 RUN pip install poetry=="$POETRY_VERSION"
 # Copia o lockfile e pyproject.toml primeiro para cachear melhor a imagem
 COPY ./fexapi/pyproject.toml /fexapi/pyproject.toml
-COPY ./fexapi/poetry.lock /fexapi/poetry.lock
 COPY ./fexapi /fexapi
 WORKDIR /fexapi
 RUN poetry build

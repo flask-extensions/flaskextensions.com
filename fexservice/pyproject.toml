@@ -26,7 +26,14 @@ black = "^19.10b0"
 pylint = "^2.4.4"
 mypy = "^0.770.0"
 sqlalchemy-stubs = "^0.3"
+towncrier = "^19.2.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
+
+[tool.towncrier]
+package = "changes"
+directory = "changes/"
+filename = "../CHANGELOG.rst"
+issue_format = "`#{issue} <https://github.com/flask-extensions/flaskextensions.com/issues/{issue}>`_"
