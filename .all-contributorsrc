@@ -124,6 +124,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "riverfount",
+      "name": "Vicente Marçal",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/26264782?v=4",
+      "profile": "http://www.vicentemarcal.unir.br",
+      "contributions": [
+        "review",
+        "doc"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
