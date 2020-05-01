@@ -11,16 +11,21 @@
 </head>
 
 <body class="site">
-  <main class="site-container">
+  <main class="site-container" id="app">
     <section class="hero">
       <div class="hero-head has-background-primary">
         <div class="container">
-          <div class="column">
-            <form action="">
+          <div class="columns">
+            <div class="column is-10">
+                <div class="field has-addons">
+                  <input type="search" placeholder="Insert a extension title" class="input is-large" v-model="term" v-on:keyup.enter="search">
+                </div>
+            </div>
+            <div class="column is-2">
               <div class="field has-addons">
-                <input type="search" placeholder="Insert a extension title" class="input is-large" name="" id="">
+                <button class="is-white button is-large" @click="search">search</button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -57,16 +62,16 @@
             </div>
             <div class="column">
               <div class="columns is-multiline">
-                <div class="column is-one-third">
+
+                <div class="column is-one-third" v-for="extension in extensions" v-bind:key="extension.id">
                   <div class="box">
-                    <p class="card-header-title">Flask Extension</p>
+                    <p class="card-header-title">{{ extension.name }}</p>
                     <div class="card-content">
                       <p class="subtitle is-size-5 has-text-grey">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum officiis, animi iusto dolor
-                        quam numquam, cupiditate molestias tenetur nisi veniam quisquam, nulla nesciunt.
+                        {{ extension.description }}
                       </p>
                       <p class="subtitle has-text-grey">
-                        - Bruno Rocha
+                        - Marcus Pereira
                       </p>
                       <div class="level">
                         <div class="level-item has-text-centered">
@@ -74,7 +79,7 @@
                             <div class="heading">
                               <i class="fas fa-star"></i> stars
                               <p class="is-size-7">
-                                33
+                                {{ extension.stargazers_count }}
                               </p>
                             </div>
                           </div>
@@ -103,144 +108,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="column is-one-third">
-                  <div class="box">
-                    <p class="card-header-title">Flask-Simple Login</p>
-                    <div class="card-content">
-                      <p class="subtitle is-size-5 has-text-grey">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum officiis, animi iusto dolor
-                        quam numquam, cupiditate molestias tenetur nisi veniam quisquam, nulla nesciunt.
-                      </p>
-                      <p class="subtitle has-text-grey">
-                        - Bruno Rocha
-                      </p>
-                      <div class="level">
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-star"></i> stars
-                              <p class="is-size-7">
-                                33
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-calendar"></i> update
-                              <p class="is-size-7">
-                                24 days ago
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-edit"></i> commits
-                              <p class="is-size-7">
-                                24
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="column is-one-third">
-                  <div class="box">
-                    <p class="card-header-title">Flask-Simple Login</p>
-                    <div class="card-content">
-                      <p class="subtitle is-size-5 has-text-grey">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum officiis, animi iusto dolor
-                        quam numquam, cupiditate molestias tenetur nisi veniam quisquam, nulla nesciunt.
-                      </p>
-                      <p class="subtitle has-text-grey">
-                        - Bruno Rocha
-                      </p>
-                      <div class="level">
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-star"></i> stars
-                              <p class="is-size-7">
-                                33
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-calendar"></i> update
-                              <p class="is-size-7">
-                                24 days ago
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-edit"></i> commits
-                              <p class="is-size-7">
-                                24
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="column is-one-third">
-                  <div class="box notification is-danger">
-                    <p class="card-header-title has-text-light">Flask NotExist</p>
-                    <div class="card-content">
-                      <p class="subtitle is-size-5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum officiis, animi iusto dolor
-                        quam numquam, cupiditate molestias tenetur nisi veniam quisquam, nulla nesciunt.
-                      </p>
-                      <p class="subtitle has-text-light">
-                        - Robert Fux
-                      </p>
-                      <div class="level">
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-star"></i> stars
-                              <p class="is-size-7">
-                                33
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-calendar"></i> update
-                              <p class="is-size-7">
-                                3 year ago
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-edit"></i> commits
-                              <p class="is-size-7">
-                                3
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
@@ -253,6 +121,29 @@
       <p class="has-text-centered">Flask Extension Footer</p>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        extensions: [],
+        term: ""
+      },
+      async mounted() {
+        const resp = await axios.get('http://localhost:8000/extension/')
+        this.extensions = resp.data
+      },
+      methods: {
+        async search(){
+          const resp = await axios.get(`http://localhost:8000/extension/?query=${this.term}`)
+          this.extensions = resp.data
+        }
+      }
+    });
+  </script>
+
 </body>
 
 </html>
