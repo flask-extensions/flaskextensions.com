@@ -134,6 +134,15 @@
         "review",
         "doc"
       ]
+    },
+    {
+      "login": "walison17",
+      "name": "Walison Filipe",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/14242043?v=4",
+      "profile": "https://github.com/walison17",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
