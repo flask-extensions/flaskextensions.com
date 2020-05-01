@@ -1,7 +1,3 @@
-# ?name=nome-da-extensao&last-update=1month
-# /extension/1 - {...}
-# /extension/?query=...  [{}, ..]  [GET]
-
 from datetime import datetime
 from typing import List, Optional
 
@@ -64,8 +60,21 @@ async def shutdown():
     await database.disconnect()
 
 
+QUERY_TEMPLATE = """
+SELECT
+    id, name, html_url, description, created_at,
+    updated_at, stargazers_count, forks_count
+FROM "repos"
+WHERE to_tsvector(name || ' ' || description)
+@@ plainto_tsquery(:term)
+"""
+
+
 @app.get("/extension/", response_model=List[Repo])
-async def read_repos():
-    # /extension/?search="login"
-    query = repos.select()
-    return await database.fetch_all(query)
+async def read_repos(query: str = None):
+    if not query:
+        return await database.fetch_all(repos.select())
+
+    return await database.fetch_all(
+        query=QUERY_TEMPLATE, values={"term": query}
+    )
