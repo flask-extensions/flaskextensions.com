@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
 
-  test:
+  fexservice:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -56,3 +56,72 @@ jobs:
           cd fexservice
           sed -i 's/blocking=True/blocking=False/g' fexservice/cli.py
           poetry run fexservice
+
+  fexapi:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.8"]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install Poetry
+        uses: dschep/install-poetry-action@v1.2
+
+      - name: Cache Poetry virtualenv
+        uses: actions/cache@v1
+        id: cache-api
+        with:
+          path: ~/.venv_fexapi
+          key: apipoetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            apipoetry-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Set Poetry config
+        run: |
+          poetry config virtualenvs.in-project false
+          poetry config virtualenvs.path ~/.venv_fexapi
+
+      - name: Install Dependencies
+        run: |
+          cd fexapi
+          poetry install
+        if: steps.cache-api.outputs.cache-hit != 'true'
+
+      - name: Typecheck services with mypy
+        run: |
+          cd fexapi
+          poetry run mypy fexapi/
+
+      - name: Run fexapi
+        env:
+          DYNACONF_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd fexapi
+          poetry run pytest
+
+  compose:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Creating variables.env
+        run: cp .example.variables.env .variables.env
+
+      - name: Build docker compose
+        run: docker-compose build --force-rm
+
+      - name: Run docker compose
+        run: docker-compose up --force-recreate -d

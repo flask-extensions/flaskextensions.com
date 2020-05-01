@@ -1,2 +1,5 @@
 [default]
 CORS_ORIGINS = "*"
+
+[development]
+DATABASE_URL = "sqlite:///:memory:"
