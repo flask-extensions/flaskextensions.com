@@ -71,10 +71,8 @@ WHERE to_tsvector(name || ' ' || description)
 
 
 @app.get("/extension/", response_model=List[Repo])
-async def read_repos(query: str = None):
+async def read_repos(query: Optional[str] = None):
     if not query:
         return await database.fetch_all(repos.select())
 
-    return await database.fetch_all(
-        query=QUERY_TEMPLATE, values={"term": query}
-    )
+    return await database.fetch_all(query=QUERY_TEMPLATE, values={"term": query})
