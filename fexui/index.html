@@ -63,7 +63,7 @@
             <div class="column">
               <div class="columns is-multiline">
 
-                <div class="column is-one-third" v-for="extension in extensions" v-bind:key="extension.id">
+                <div class="column is-one-third" v-for="extension in result.items" :key="extension.id">
                   <div class="box">
                     <p class="card-header-title">{{ extension.name }}</p>
                     <div class="card-content">
@@ -109,6 +109,18 @@
                   </div>
                 </div>
 
+                <div class="column is-full">
+			<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+			  <a class="pagination-previous" :disabled="!result.page.previous" @click="paginate(result.page.previous)">Previous</a>
+			  <a class="pagination-next" :disabled="!result.page.next" @click="paginate(result.page.next)">Next page</a>
+
+			<ul class="pagination-list">
+   				<li>{{ result.page.page}} / {{result.page.total}}</li>
+  			</ul>
+			</nav>
+		</div>
+
+
               </div>
             </div>
           </div>
@@ -125,21 +137,38 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
+    const instance = axios.create({
+         baseURL: 'http://localhost:8000/',
+    });
+
     new Vue({
       el: "#app",
       data: {
-        extensions: [],
+        result: {},
         term: ""
       },
       async mounted() {
-        const resp = await axios.get('http://localhost:8000/extension/')
-        this.extensions = resp.data
+        const resp = await instance.get('extension/')
+        this.result = resp.data
       },
       methods: {
         async search(){
-          const resp = await axios.get(`http://localhost:8000/extension/?query=${this.term}`)
-          this.extensions = resp.data
-        }
+          const resp = await instance.get(`extension/?query=${this.term}`)
+          this.result = resp.data
+        },
+	async paginate(paginate_to){
+	  const resp = await instance.get(
+		'extension/', 
+		{
+			params: {
+				page: paginate_to, 
+				per_page: this.result.page.page_size, 
+				query: this.term
+			}
+		}
+	  )
+          this.result = resp.data
+	}
       }
     });
   </script>
