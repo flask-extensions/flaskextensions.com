@@ -11,6 +11,7 @@ databases = "^0.2.6"
 asyncpg = "^0.20.1"
 dynaconf = "^2.2.3"
 psycopg2-binary = "^2.8.5"
+aiosqlite = "^0.13.0"
 sqlalchemy-pagination = "^0.0.2"
 
 [tool.poetry.dev-dependencies]
