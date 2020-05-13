@@ -7,7 +7,17 @@
     flex: 1;
 }
 
+#search-form {
+  margin-top: 50px;
+}
 
+.card {
+  margin-bottom: 20px;
+}
+
+.card-content {
+  height: 130px;
+}
 
 .level-item span.meta {
     margin-left: 5px !important;

@@ -12,116 +12,108 @@
 
 <body class="site">
   <main class="site-container" id="app">
-    <section class="hero">
-      <div class="hero-head has-background-primary">
-        <div class="container">
-          <div class="columns">
-            <div class="column is-10">
-                <div class="field has-addons">
-                  <input type="search" placeholder="Insert a extension title" class="input is-large" v-model="term" v-on:keyup.enter="search">
-                </div>
-            </div>
-            <div class="column is-2">
+    <section class="hero is-primary is-medium">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-spaced has-text-black">Flask Extensions</h1>
+          <h2 class="subtitle has-text-black">Curated list of Flask Extensions</h2>
+          <div class="columns is-centered" id="search-form">
+            <div class="column is-8-desktop is-12-mobile">
               <div class="field has-addons">
-                <button class="is-white button is-large" @click="search">search</button>
+                <input type="search" placeholder="Insert a extension title" class="input is-large" v-model="term"
+                  v-on:keyup.enter="search">
+              </div>
+            </div>
+            <div class="column is-full-mobile is-2-desktop">
+              <div class="field has-addons">
+                <button class="is-primary is-outlined button is-large is-inverted" @click="search">SEARCH</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns filters">
-            <div class="column is-2">
-              <form action="">
-                <div class="field">
-                  <label for="" class="label">Uptime</label>
-                  <div class="control select is-rounded">
-                    <select name="" id="">
-                      <option value="">Select By Uptime</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="field">
-                  <label for="" class="label">Categories</label>
-                  <div class="control select is-rounded">
-                    <select name="" id="">
-                      <option value="">Select a Category</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="field">
-                  <label for="" class="label">License</label>
-                  <div class="control select is-rounded">
-                    <select name="" id="">
-                      <option value="">Select a License</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="column">
-              <div class="columns is-multiline">
+    </section>
 
-                <div class="column is-one-third" v-for="extension in result.items" :key="extension.id">
-                  <div class="box">
-                    <p class="card-header-title">{{ extension.name }}</p>
-                    <div class="card-content">
-                      <p class="subtitle is-size-5 has-text-grey">
-                        {{ extension.description }}
-                      </p>
-                      <p class="subtitle has-text-grey">
-                        - Marcus Pereira
-                      </p>
-                      <div class="level">
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-star"></i> stars
-                              <p class="is-size-7">
-                                {{ extension.stargazers_count }}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-calendar"></i> update
-                              <p class="is-size-7">
-                                24 days ago
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="level-item has-text-centered">
-                          <div>
-                            <div class="heading">
-                              <i class="fas fa-edit"></i> commits
-                              <p class="is-size-7">
-                                24
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-expanded">
+            <p class="is-size-4">Results: 1 </p>
+          </div>
+          <div class="column is-3">
+            <div class="select is-rounded is-fullwidth">
+              <select name="" id="">
+                <option value="">Topics</option>
+                <option value="">Topics</option>
+                <option value="">Topics</option>
+                <option value="">Topics</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="columns filters">
+          <div class="column">
+            <div class="columns is-multiline">
+              <div class="column is-one-quarter" v-for="extension in result.items" :key="extension.id">
+                <div class="card">
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      {{ extension.name }}
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      {{ extension.description | truncate }}
                     </div>
                   </div>
+                  <footer class="card-footer">
+                    <a href="#" class="card-footer-item has-icons-left">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>                  
+                      Github
+                    </a>
+                    <a href="#" class="card-footer-item has-icons-left">
+                      <span class="icon">
+                        <i class="fab fa-stack-overflow"></i>
+                      </span>                  
+                      Stack
+                    </a>
+                    <a href="#" class="card-footer-item has-icons-left">
+                      <span class="icon">
+                        <i class="fas fa-file"></i>
+                      </span>                  
+                      docs
+                    </a>
+
+                  </footer>
                 </div>
-
-                <div class="column is-full">
-			<nav class="pagination is-centered" role="navigation" aria-label="pagination">
-			  <a class="pagination-previous" :disabled="!result.page.previous" @click="paginate(result.page.previous)">Previous</a>
-			  <a class="pagination-next" :disabled="!result.page.next" @click="paginate(result.page.next)">Next page</a>
-
-			<ul class="pagination-list">
-   				<li>{{ result.page.page}} / {{result.page.total}}</li>
-  			</ul>
-			</nav>
-		</div>
-
-
               </div>
+
+              <div class="column is-full">
+                <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+                  <a class="pagination-previous" :disabled="!result.page.previous"
+                    @click="paginate(result.page.previous)">Previous</a>
+                  <a class="pagination-next" :disabled="!result.page.next" @click="paginate(result.page.next)">Next
+                    page</a>
+
+                  <ul class="pagination-list">
+                    <li>Page {{ result.page.page}} / {{result.page.total}}</li>
+                  </ul>
+                </nav>
+              </div>
+
+
             </div>
           </div>
         </div>
@@ -138,7 +130,7 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     const instance = axios.create({
-         baseURL: 'http://localhost:8000/',
+      baseURL: 'http://localhost:8000/',
     });
 
     new Vue({
@@ -151,24 +143,31 @@
         const resp = await instance.get('extension/')
         this.result = resp.data
       },
+      filters: {
+        truncate: function(text) {
+          if(text.length > 80 )
+            return text.substring(0, 80) + " [...]"
+          return text;
+        }
+      },
       methods: {
-        async search(){
+        async search() {
           const resp = await instance.get(`extension/?query=${this.term}`)
           this.result = resp.data
         },
-	async paginate(paginate_to){
-	  const resp = await instance.get(
-		'extension/', 
-		{
-			params: {
-				page: paginate_to, 
-				per_page: this.result.page.page_size, 
-				query: this.term
-			}
-		}
-	  )
+        async paginate(paginate_to) {
+          const resp = await instance.get(
+            'extension/',
+            {
+              params: {
+                page: paginate_to,
+                per_page: this.result.page.page_size,
+                query: this.term
+              }
+            }
+          )
           this.result = resp.data
-	}
+        }
       }
     });
   </script>
