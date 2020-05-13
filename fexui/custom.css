@@ -16,6 +16,10 @@
   border-radius: 10px;
 }
 
+.card:hover {
+  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
+}
+
 .card-content {
   height: 130px;
 }
