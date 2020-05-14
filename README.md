@@ -5,6 +5,9 @@
 Website http://flaskextensions.com curated collection of Flask Extensions and its resources
 
 
+<img src="./assets/screenshot.png" height="400">
+
+
 ## Why?
 
 There are some amazing Flask Extensions spread across github and gitlab repositories but we miss a place to aggregate and follow status of them all.
@@ -17,15 +20,15 @@ This project has been develped during live coding streams at https://twitch.tv/c
 
 This project is divided in some services:
 
-- **FEXService** (__in_progress__)
+- **FEXService**
 
   Powered by **Python sched** Fetches data from Github API for every repo having `flask-extension` as a topic.
 
-- **FEXAPI** (__in_progress__)
+- **FEXAPI**
 
   Powered by **FastAPI** serves the data and provides search, pagination, aggregation etc.
 
-- **FEXUI** (__in_progress__)
+- **FEXUI**
 
   Powered by **Vue.js** and **Bulma CSS** shows the web grid to search extensions.
 
