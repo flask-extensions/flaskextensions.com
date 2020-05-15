@@ -29,3 +29,4 @@ ConsumerCritical = (
     OperationalError,
     AttributeError,
 )
+DatabaseError = (OperationalError,)

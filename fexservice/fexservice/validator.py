@@ -20,18 +20,15 @@ validators = [
     # Validação de um valor mínimo para o DELAY e a PRIORITY
     Validator("DELAY", gte=10),
     Validator("PRIORITY", gte=100),
-
     # SQLITE cannot be used in production
     Validator(
-        'DATABASE_URL',
-        condition=lambda value: 'sqlite://' not in value,
-        env="PRODUCTION"
+        "DATABASE_URL",
+        condition=lambda value: "sqlite://" not in value,
+        env="PRODUCTION",
     ),
-
     # GITHUB_TOKEN must have been set by the user
     Validator(
-        'GITHUB_TOKEN',
-        ne="<Your Real Token Here or in ./fexservice/.secrets.toml>"
-    )
-
+        "GITHUB_TOKEN",
+        ne="<Your Real Token Here or in ./fexservice/.secrets.toml>",
+    ),
 ]

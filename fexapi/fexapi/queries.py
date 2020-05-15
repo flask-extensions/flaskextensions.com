@@ -1,10 +1,6 @@
 import math
 
-BASE = (
-    "SELECT "
-    "{fields} "
-    "FROM repos "
-)
+BASE = "SELECT " "{fields} " "FROM repos "
 
 SEARCH = (
     "WHERE to_tsvector('simple', name || ' ' || description) "
@@ -24,7 +20,6 @@ COUNT = "count(id) as total"
 
 
 class Page(object):
-
     def __init__(self, items, page, page_size, total):
         self.items = items
         self.previous_page = None
@@ -48,15 +43,15 @@ class Page(object):
             "page": self.page,
             "previous": self.previous_page,
             "next": self.next_page,
-            "pages": self.pages
+            "pages": self.pages,
         }
 
 
-def paginate(query, page,rpage_size):
+def paginate(query, page, rpage_size):
     if page <= 0:
-        raise AttributeError('page needs to be >= 1')
+        raise AttributeError("page needs to be >= 1")
     if page_size <= 0:
-        raise AttributeError('page_size needs to be >= 1')
+        raise AttributeError("page_size needs to be >= 1")
     items = query.limit(page_size).offset((page - 1) * page_size).all()
     total = query.order_by(None).count()
     return Page(items, page, page_size, total)

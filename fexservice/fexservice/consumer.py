@@ -1,24 +1,26 @@
 import dataset
-from dynaconf import settings
 from github import Github
 
-from fexservice.validator import validators
-from fexservice.exception import ConsumerCritical, ConsumerWarning
+from fexservice.config import settings
+from fexservice.exception import (
+    ConsumerCritical,
+    ConsumerWarning,
+    DatabaseError,
+)
 from fexservice.logger import logger
-
-# Fire the validator settings
-settings.validators.register(*validators)
-settings.validators.validate()
 
 try:
     github = Github(settings.GITHUB_TOKEN)
 except AttributeError as e:
     logger.critical(e)
-    exit(1)
+    raise
 
-# TODO: ConnectionError
-db = dataset.connect(settings.DATABASE_URL, engine_kwargs={"echo": True})
-repo = db["repos"]
+try:
+    db = dataset.connect(settings.DATABASE_URL, engine_kwargs={"echo": True})
+    repo = db["repos"]
+except DatabaseError as e:
+    logger.error(e)
+    raise
 
 
 def fetch_github():

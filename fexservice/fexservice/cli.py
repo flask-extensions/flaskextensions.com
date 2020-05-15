@@ -9,10 +9,10 @@ from datetime import datetime, timedelta
 from typing import Callable
 
 from dynaconf import settings
-from typer import run
 
 from fexservice.consumer import fetch_github
 from fexservice.logger import logger
+from typer import run
 
 cron = sched.scheduler(timefunc=time.time)
 

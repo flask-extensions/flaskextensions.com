@@ -1,8 +1,6 @@
 from fastapi.testclient import TestClient
-
 from fexapi import __version__
 from fexapi.api import app
-
 
 client = TestClient(app)
 

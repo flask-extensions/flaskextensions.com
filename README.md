@@ -2,6 +2,9 @@
 
 # FlaskExtensions.com
 
+<img src="./assets/diagram.png" height="400">
+
+
 Website http://flaskextensions.com curated collection of Flask Extensions and its resources
 
 
