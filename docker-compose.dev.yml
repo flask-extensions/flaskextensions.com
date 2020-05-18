@@ -1,0 +1,18 @@
+---
+version: "3"
+
+services:
+
+  fexui:
+    build:
+      context: .
+      dockerfile: ./docker/ui/Dockerfile
+    restart: always
+    environment:
+      - PORT=5500
+    depends_on:
+      - "fexapi"
+    volumes:
+      - ./fexui:/fexui
+    ports:
+      - "5500:5500"

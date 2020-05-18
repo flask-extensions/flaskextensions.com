@@ -1,0 +1,54 @@
+---
+- hosts: do
+  remote_user: root
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    project_root: /project
+  tasks:
+    - name: Ensure base requirements are installed
+      package:
+        name:
+          - git
+          - htop
+          - httpie
+          - tmux
+          - vim
+          - wget
+          - docker
+          - docker-compose
+          - dnf-utils
+          - python3-devel
+          - postgresql
+          - nginx
+          - nano
+        state: present
+      retries: 5
+      register: result
+      until: result is succeeded
+    
+    - name: Git Repo
+      git:
+        repo: https://github.com/flask-extensions/flaskextensions.com
+        dest: "{{ project_root }}"
+
+    - name: Set variables on .variables.env (ansible vault)
+      copy:
+        src: ../.variables.env
+        dest: "{{ project_root }}/.variables.env"
+    
+    - name: Tear down existing services
+      docker_compose:
+        project_src: "{{ project_root }}"
+        state: absent
+
+    - name: Create and start services
+      docker_compose:
+        project_src: "{{ project_root }}"
+      register: output
+
+    - debug:
+        var: output
+
+    - name:  Setup NGINX
+      debug: 
+        msg: "setup nginx"
