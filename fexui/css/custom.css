@@ -1,10 +1,16 @@
-.site {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+@font-face {
+  font-family: PesaroBold;
+  src: url(../font/PesaroBold.ttf);
 }
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .site-container {
-    flex: 1;
+  flex: 1;
 }
 
 #search-form {
@@ -21,20 +27,97 @@
 }
 
 .card-content {
-  height: 130px;
+  height: 210px;
+}
+
+.description {
+  height: 125px;
 }
 
 .level-item span.meta {
-    margin-left: 5px !important;
+  margin-left: 5px !important;
 }
 
-input[type=search] {
-    margin-bottom: 40px;
-}
 .filters form .field {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 section.top-status {
   padding: 1rem 1.5rem;
+}
+
+.baner {
+  background-image: url(../img/Baner.png);
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.bk-null {
+  background-color: transparent;
+}
+
+.img-hero {
+  margin-top: 35px;
+}
+
+.info-hero {
+  font-family: PesaroBold;
+  font-size: 2.5rem;
+}
+
+.pagination > a:hover {
+  color: white;
+  background-color: #1d9cc9;
+  border-color: #ddd;
+}
+
+.card-footer > .left:hover {
+  color: white;
+  background-color: #1d9cc9;
+  border-end-start-radius: 5px;
+}
+
+.card-footer > .right:hover {
+  color: white;
+  background-color: #1d9cc9;
+  border-end-end-radius: 5px;
+}
+
+.card-content > .columns > .column {
+  padding-top: 0px !important;
+}
+
+.log-flask-extension {
+  display: none;
+  background-image: url(../img/Logo-MB.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 100px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .baner {
+    background-image: url(../img/Baner-SM.png);
+  }
+  .info-hero {
+    color: #1d9cc9 !important;
+  }
+  .subtitle-hero {
+    color: #494949 !important;
+  }
+  .log-flask-extension {
+    display: block;
+  }
+  .hero-body {
+    padding-top: 0px !important;
+  }
+  .hero-head {
+    display: none;
+  }
 }
