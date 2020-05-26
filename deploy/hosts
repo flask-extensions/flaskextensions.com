@@ -1,7 +1,0 @@
-[do]
-#192.241.137.28
-161.35.57.225
-
-[do:vars]
-ansible_ssh_user=root
-ansible_ssh_private_key_file=/home/rochacbruno/.ssh/dofex

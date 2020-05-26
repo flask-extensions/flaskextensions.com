@@ -13,17 +13,15 @@ build:
 
 
 run:
-	@docker-compose up --force-recreate -d
-
+	@docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --force-recreate -d
 
 restart:
-	@docker-compose restart -t 0
+	@docker-compose -f docker-compose.yml -f docker-compose.dev.yml restart -t 0
 
 
 stop:
-	@docker-compose down -t 0
+	@docker-compose -f docker-compose.yml -f docker-compose.dev.yml down -t 0
 
 
 logs:
-	@docker-compose logs -f
-
+	@docker-compose -f docker-compose.yml -f docker-compose.dev.yml logs -f

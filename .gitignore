@@ -139,3 +139,5 @@ temp/
 
 # No need to send lock file
 poetry.lock
+
+deploy/hosts
