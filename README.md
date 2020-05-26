@@ -8,7 +8,8 @@
 Website http://flaskextensions.com curated collection of Flask Extensions and its resources
 
 
-<img src="./assets/screenshot.png" height="400">
+<img src="./assets/screenshot.png" width="300">
+<img src="./assets/fex_search_screenshot.png" width="300">
 
 
 ## Why?
