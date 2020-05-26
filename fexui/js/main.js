@@ -1,6 +1,5 @@
 const instance = axios.create({
   baseURL: `//${window.location.hostname}:8000/`,
-  // baseURL: "http://161.35.57.225:8000/",
 });
 
 new Vue({

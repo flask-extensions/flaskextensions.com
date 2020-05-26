@@ -4,28 +4,54 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
     project_root: /project
+  #   wtd_srv_docker_compose_package_state: latest
+  #   ## Service Management
+  #   wtd_srv_docker_service: "docker"
+  #   # State can be started|stopped
+  #   wtd_srv_docker_service_state: "started"
+  #   wtd_srv_docker_service_enabled: true
+
+  # roles:
+  #   - while_true_do.srv_docker
   tasks:
+
+    - name: Disable SELinux
+      selinux:
+        state: disabled
+
     - name: Ensure base requirements are installed
       package:
         name:
           - git
-          - htop
-          - httpie
-          - tmux
-          - vim
-          - wget
-          - docker
-          - docker-compose
-          - dnf-utils
-          - python3-devel
           - postgresql
           - nginx
-          - nano
+          - dnf-plugins-core
         state: present
       retries: 5
       register: result
       until: result is succeeded
-    
+
+    # TODO: trocar pelo modulo correto
+    - name: Add docker-ce repo
+      command: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
+    - name: Install docker
+      package:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+
+    - name: Install Pip requirements
+      pip:
+        name: 
+          - docker-compose
+
+    - name: Start service docker, if not started
+      service:
+        name: docker
+        state: started
+
     - name: Git Repo
       git:
         repo: https://github.com/flask-extensions/flaskextensions.com
@@ -44,6 +70,7 @@
     - name: Create and start services
       docker_compose:
         project_src: "{{ project_root }}"
+        build: yes
       register: output
 
     - debug:
