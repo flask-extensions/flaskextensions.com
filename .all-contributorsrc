@@ -143,6 +143,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "bergpb",
+      "name": "Berg Paulo",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/11005963?v=4",
+      "profile": "https://bergpb.github.io",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
