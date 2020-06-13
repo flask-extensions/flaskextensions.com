@@ -152,6 +152,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "kureck",
+      "name": "Eric Kureck",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/427952?v=4",
+      "profile": "https://github.com/kureck",
+      "contributions": [
+        "code",
+        "ideas",
+        "review"
+      ]
     }
   ],
   "projectName": "flaskextensions.com",
