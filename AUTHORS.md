@@ -42,6 +42,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/walison17"><img src="https://avatars3.githubusercontent.com/u/14242043?v=4" width="100px;" alt=""/><br /><sub><b>Walison Filipe</b></sub></a><br /><a href="#ideas-walison17" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://bergpb.github.io"><img src="https://avatars1.githubusercontent.com/u/11005963?v=4" width="100px;" alt=""/><br /><sub><b>Berg Paulo</b></sub></a><br /><a href="https://github.com/flask-extensions/flaskextensions.com/commits?author=bergpb" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/kureck"><img src="https://avatars2.githubusercontent.com/u/427952?v=4" width="100px;" alt=""/><br /><sub><b>Eric Kureck</b></sub></a><br /><a href="https://github.com/flask-extensions/flaskextensions.com/commits?author=kureck" title="Code">💻</a> <a href="#ideas-kureck" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/flask-extensions/flaskextensions.com/pulls?q=is%3Apr+reviewed-by%3Akureck" title="Reviewed Pull Requests">👀</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
